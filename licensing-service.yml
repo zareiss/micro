@@ -1,47 +1,59 @@
 eureka:
-    client:
-        fetchRegistry: true
-        registerWithEureka: true
-        serviceUrl:
-            defaultZone: http://localhost:8070/eureka/
-    instance:
-        preferIpAddress: true
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8070/eureka/
+  instance:
+    preferIpAddress: true
 example:
-    property: I AM THE DEFAULT LIC
+  property: I AM THE DEFAULT LIC
 management:
-    endpoints:
-        enabled-by-default: true
-        web:
-            exposure:
-                include: '*'
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: '*'
 resilience4j:
-    circuitbreaker:
-        instances:
-            licenseService:
-                failureRateThreshold: 50
-                registerHealthIndicator: true
-                ringBufferSizeInClosedState: 5
-                ringBufferSizeInHalfOpenState: 3
-                waitDurationInOpenState: 10s
-            organizationService:
-                failureRateThreshold: 60
-                registerHealthIndicator: true
-                ringBufferSizeInClosedState: 6
-                ringBufferSizeInHalfOpenState: 4
-                waitDurationInOpenState: 20s
+  circuitbreaker:
+    instances:
+      licenseService:
+        failureRateThreshold: 50
+        registerHealthIndicator: true
+        ringBufferSizeInClosedState: 5
+        ringBufferSizeInHalfOpenState: 3
+        waitDurationInOpenState: 10s
+      organizationService:
+        failureRateThreshold: 60
+        registerHealthIndicator: true
+        ringBufferSizeInClosedState: 6
+        ringBufferSizeInHalfOpenState: 4
+        waitDurationInOpenState: 20s
+    bulkhead:
+      instances:
+        bulkheadLicenseService:
+          maxWaitDuration: 10ms
+          maxConcurrentCalls: 20
+    thread-pool-bulkhead:
+      instances:
+        bulkheadLicenseService:
+          maxThreadPoolSize: 1
+          coreThreadPoolSize: 1
+          queueCapacity: 1
+          keepAliveDuration: 20ms
 spring:
-    database:
-        driverClassName: org.postgresql.Driver
-    datasource:
-        platform: postgres
-        testWhileIdle: true
-        validationQuery: SELECT 1
-    jpa:
-        database: POSTGRESQL
-        hibernate:
-            ddl-auto: none
-            naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
-        properties:
-            hibernate:
-                dialect: org.hibernate.dialect.PostgreSQLDialect
-        show-sql: true
+  database:
+    driverClassName: org.postgresql.Driver
+  datasource:
+    platform: postgres
+    testWhileIdle: true
+    validationQuery: SELECT 1
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: none
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
