@@ -41,7 +41,6 @@ resilience4j:
           coreThreadPoolSize: 1
           queueCapacity: 1
           keepAliveDuration: 20ms
-
     ratelimiter:
       instances:
         licenseService:
