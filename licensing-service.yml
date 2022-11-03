@@ -47,13 +47,13 @@ resilience4j:
         timeoutDuration: 1000ms
         limitRefreshPeriod: 5000
         limitForPeriod: 5
-  retry:
-    instances:
-      retryLicenseService:
-        maxRetryAttempts: 5
-        waitDuration: 10000
-        retry-exceptions:
-          - java.util.concurrent.TimeoutException
+#  retry:
+#    instances:
+#      retryLicenseService:
+#        maxRetryAttempts: 5
+#        waitDuration: 10000
+#        retry-exceptions:
+#          - java.util.concurrent.TimeoutException
 spring:
   database:
     driverClassName: org.postgresql.Driver
