@@ -1,6 +1,5 @@
 server:
-  port:8072
-
+  port: 8072
 eureka:
   instance:
     preferIpAddress: true
