@@ -74,3 +74,10 @@ logging:
   level:
     org.springframework.web: WARN
     com.optimagrowth: DEBUG
+
+endpoints:
+  cors:
+    allow-credentials: true
+    allowed-origins: "*"
+    allowed-methods: "*"
+    allowed-headers: "*"
