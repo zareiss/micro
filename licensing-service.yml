@@ -72,7 +72,7 @@ spring:
     show-sql: true
 logging:
   level:
-    org.springframework.web: WARN
+    org.springframework.web: WARN,ERROR
     com.optimagrowth: DEBUG
 
 endpoints:
