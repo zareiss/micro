@@ -72,7 +72,7 @@ spring:
     show-sql: true
 logging:
   level:
-    org.springframework.web: WARN,ERROR
+    org.springframework.web: WARN
     com.optimagrowth: DEBUG
 
 endpoints:
@@ -81,3 +81,5 @@ endpoints:
     allowed-origins: "*"
     allowed-methods: "*"
     allowed-headers: "*"
+server:
+  port: 8180
