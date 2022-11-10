@@ -47,3 +47,7 @@ endpoints:
     allowed-origins: "*"
     allowed-methods: "*"
     allowed-headers: "*"
+logging:
+  level:
+    org.springframework.web: WARN
+    com.optimagrowth: DEBUG
