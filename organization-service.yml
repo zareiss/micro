@@ -9,7 +9,8 @@ eureka:
 example:
   property: I AM THE DEFAULT ORG
 keycloak:
-  auth-server-url: http://localhost:8080/auth
+
+  auth-server-url: http://localhost:8080
   bearer-only: true
   credentials:
     secret: K6s6Fw9jLc5yTBtwjjHaXCVTs5ui3LrF
