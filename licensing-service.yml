@@ -6,6 +6,16 @@ eureka:
       defaultZone: http://localhost:8070/eureka/
   instance:
     preferIpAddress: true
+keycloak:
+  auth-server-url: http://localhost:8080
+  bearer-only: true
+  credentials:
+    secret: K6s6Fw9jLc5yTBtwjjHaXCVTs5ui3LrF
+  realm: spmia-realm
+  resource: ostock
+  ssl-required: external
+  use-resource-role-mappings: false
+
 example:
   property: I AM THE DEFAULT LIC
 management:
