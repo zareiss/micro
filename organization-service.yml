@@ -16,7 +16,7 @@ keycloak:
   realm: spmia-realm
   resource: ostock
   ssl-required: external
-  use-resource-role-mappings: true
+  use-resource-role-mappings: false
 management:
   endpoints:
     enabled-by-default: true
