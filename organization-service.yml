@@ -8,6 +8,15 @@ eureka:
         preferIpAddress: true
 example:
     property: I AM THE DEFAULT ORG
+keycloak:
+    auth-server-url: http://localhost:8080/auth
+    bearer-only: true
+    credentials:
+        secret: K6s6Fw9jLc5yTBtwjjHaXCVTs5ui3LrF
+    realm: spmia-realm
+    resource: ostock
+    ssl-required: external
+    use-resource-role-mappings: true
 management:
     endpoints:
         enabled-by-default: true
