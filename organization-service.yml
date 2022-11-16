@@ -1,47 +1,41 @@
 eureka:
-  client:
-    fetchRegistry: true
-    registerWithEureka: true
-    serviceUrl:
-      defaultZone: http://localhost:8070/eureka/
-  instance:
-    preferIpAddress: true
+    client:
+        fetchRegistry: true
+        registerWithEureka: true
+        serviceUrl:
+            defaultZone: http://localhost:8070/eureka/
+    instance:
+        preferIpAddress: true
 example:
-  property: I AM THE DEFAULT ORG
+    property: I AM THE DEFAULT ORG
 keycloak:
-
-  auth-server-url: http://localhost:8080
-  bearer-only: true
-  credentials:
-    secret: K6s6Fw9jLc5yTBtwjjHaXCVTs5ui3LrF
-  realm: spmia-realm
-  resource: ostock
-  ssl-required: external
-  use-resource-role-mappings: false
+    auth-server-url: http://localhost:8080
+    bearer-only: true
+    credentials:
+        secret: K6s6Fw9jLc5yTBtwjjHaXCVTs5ui3LrF
+    realm: spmia-realm
+    resource: ostock
+    ssl-required: external
+    use-resource-role-mappings: false
 management:
-  endpoints:
-    enabled-by-default: true
-    web:
-      exposure:
-        include: '*'
+    endpoints:
+        enabled-by-default: true
+        web:
+            exposure:
+                include: '*'
 server:
-  port: 8081
+    port: 8081
 spring:
+    cloud:
+        stream:
+            bindings:
+                output:
+                    content-type: application/json
+                    destination: orgChangeTopic
+            kafka:
+                binder:
+                    brokers: localhost
+                    zkNodes: localhost
 
-  main:
-    allow-circular-references: true.
-  database:
-    driverClassName: org.postgresql.Driver
-  datasource:
-    platform: postgres
-    testWhileIdle: true
-    validationQuery: SELECT 1
-  jpa:
-    database: POSTGRESQL
-    hibernate:
-      ddl-auto: none
-      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-    show-sql: true
+    main:
+        allow-circular-references: true.

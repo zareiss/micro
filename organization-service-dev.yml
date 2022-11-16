@@ -1,7 +1,21 @@
 example:
     property: I AM DEV ORG
 spring:
+    database:
+        driverClassName: org.postgresql.Driver
     datasource:
         password: postgres
         url: jdbc:postgresql://localhost:5432/ostock_dev
         username: postgres
+        platform: postgres
+        testWhileIdle: true
+        validationQuery: SELECT 1
+    jpa:
+        database: POSTGRESQL
+        hibernate:
+            ddl-auto: none
+            naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+        show-sql: true

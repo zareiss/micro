@@ -1,7 +1,33 @@
 example:
     property: I AM DEV LIC
 spring:
+    cloud:
+        stream:
+            bindings:
+                input:
+                    content-type: application/json
+                    destination: orgChangeTopic
+                    group: licensingGroup
+            kafka:
+                binder:
+                    brokers: localhost
+                    zkNodes: localhost
     datasource:
         password: postgres
         url: jdbc:postgresql://localhost:5432/ostock_dev
         username: postgres
+        platform: postgres
+        testWhileIdle: true
+        validationQuery: SELECT 1
+
+    database:
+        driverClassName: org.postgresql.Driver
+        jpa:
+            database: POSTGRESQL
+            hibernate:
+                ddl-auto: none
+                naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+            properties:
+                hibernate:
+                    dialect: org.hibernate.dialect.PostgreSQLDialect
+            show-sql: true
