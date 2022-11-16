@@ -34,8 +34,8 @@ spring:
                     destination: orgChangeTopic
             kafka:
                 binder:
-                    brokers: localhost
-                    zkNodes: localhost
+                    brokers: localhost:9092
+                    zkNodes: localhost:9092
 
     main:
         allow-circular-references: true.
