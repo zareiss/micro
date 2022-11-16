@@ -10,8 +10,8 @@ spring:
                     group: licensingGroup
             kafka:
                 binder:
-                    brokers: localhost
-                    zkNodes: localhost
+                    brokers: localhost:9092
+                    zkNodes: localhost:9092
     datasource:
         password: postgres
         url: jdbc:postgresql://localhost:5432/ostock_dev
