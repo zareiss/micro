@@ -66,7 +66,8 @@ resilience4j:
         instances:
             retryLicenseService:
                 maxRetryAttempts: 5
-                retry-exceptions: '[java.util.concurrent.TimeoutException]'
+                retry-exceptions:
+                    - java.util.concurrent.TimeoutException
                 waitDuration: 10000
     thread-pool-bulkhead:
         instances:
